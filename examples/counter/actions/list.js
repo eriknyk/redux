@@ -1,14 +1,24 @@
-export const ADD_COUNTER = 'ADD_COUNTER';
-export const REMOVE_COUNTER = 'REMOVE_COUNTER';
+export const ADD_TO_LIST = 'ADD_TO_LIST';
+export const REMOVE_FROM_LIST = 'REMOVE_FROM_LIST';
+export const PERFORM_IN_LIST = 'PERFORM_IN_LIST';
 
-export function add() {
+export function addToList() {
   return {
-    type: ADD_COUNTER
+    type: ADD_TO_LIST
   };
 }
 
-export function remove() {
+export function removeFromList(index) {
   return {
-    type: REMOVE_COUNTER
+    type: REMOVE_FROM_LIST,
+    index
+  };
+}
+
+export function performInList(index, action) {
+  return {
+    type: PERFORM_IN_LIST,
+    index,
+    action
   };
 }

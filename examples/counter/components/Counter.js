@@ -1,29 +1,27 @@
 import React, { Component, PropTypes } from 'react';
+import { increment, incrementIfOdd, incrementAsync, decrement } from '../actions/counter';
 
 class Counter extends Component {
   render() {
-    const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
+    const { dispatch, counter } = this.props;
     return (
       <p>
         Clicked: {counter} times
         {' '}
-        <button onClick={increment}>+</button>
+        <button onClick={() => dispatch(increment())}>+</button>
         {' '}
-        <button onClick={decrement}>-</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
         {' '}
-        <button onClick={incrementIfOdd}>Increment if odd</button>
+        <button onClick={() => dispatch(incrementIfOdd())}>Increment if odd</button>
         {' '}
-        <button onClick={() => incrementAsync()}>Increment async</button>
+        <button onClick={() => dispatch(incrementAsync())}>Increment async</button>
       </p>
     );
   }
 }
 
 Counter.propTypes = {
-  increment: PropTypes.func.isRequired,
-  incrementIfOdd: PropTypes.func.isRequired,
-  incrementAsync: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
   counter: PropTypes.number.isRequired
 };
 

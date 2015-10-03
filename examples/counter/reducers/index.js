@@ -2,11 +2,10 @@ import { combineReducers } from 'redux';
 import counter from './counter';
 import list from './list'
 
+const counterList = list(counter);
+
 const rootReducer = combineReducers({
-  counterList: list(counter, {
-    add: 'ADD_COUNTER',
-    remove: 'REMOVE_COUNTER'
-  })
+  counterList
 });
 
 export default rootReducer;
